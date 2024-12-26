@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Task from './Task';
 import { Pie } from 'react-chartjs-2';
-
+import { Chart as ChartJS } from 'chart.js/auto';
 
 function App() {
   const [tasks, setTasks] = useState([]);

@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',  // Bind to all available network interfaces
-    port: 5173,        // Default port; you can change this if needed
-  },
-
+    port: 5173,        // Default port; you can change this if needed
+  },
+  build: {
+    rollupOptions: {
+      external: ['react-chartjs-2'],  // Externalize 'react-chartjs-2' during build
+    },
+  },
 })
