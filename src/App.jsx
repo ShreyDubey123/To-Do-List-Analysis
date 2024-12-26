@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import Task from './Task';
-import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -17,22 +15,6 @@ function App() {
       ]);
       setTaskName("");
     }
-  };
-
-  // Pie chart data calculation
-  const completedTasks = tasks.filter((task) => task.isCompleted).length;
-  const totalTasks = tasks.length;
-  const percentageCompleted = totalTasks ? (completedTasks / totalTasks) * 100 : 0;
-
-  const data = {
-    labels: ['Completed', 'Pending'],
-    datasets: [
-      {
-        data: [percentageCompleted, 100 - percentageCompleted],
-        backgroundColor: ['#28a745', '#dc3545'],
-        hoverBackgroundColor: ['#218838', '#c82333'],
-      },
-    ],
   };
 
   return (
@@ -56,11 +38,6 @@ function App() {
 
       <div className="clock">
         <div className="scale"></div>
-      </div>
-
-      <div className="pie-chart">
-        <h2>Task Completion</h2>
-        <Pie data={data} />
       </div>
     </div>
   );
